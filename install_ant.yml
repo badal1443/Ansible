@@ -1,0 +1,31 @@
+- name: ANT 1.19 installation on linux
+  hosts: localhost
+  become: true
+  tasks:
+          - name: Download the openjdk package
+            get_url:
+                  url: https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.tar.gz
+                  dest: /home/ansible/apache-ant-1.9.16-bin.tar.gz
+
+          - name : Unzip the package
+            unarchive:
+                    src: /home/ansible/apache-ant-1.9.16-bin.tar.gz
+                    dest: /home/ansible
+                    remote_src: yes
+
+          - name: JAVA_HOME settings
+            lineinfile:
+                    path: /etc/profile
+                    state: present
+                    line: "{{ item }}"
+            with_items:
+                   - 'export ANT_HOME="/home/ansible/apache-ant-1.9.16"'
+                   - 'export PATH=$PATH:$ANT_HOME/bin'
+
+          - name: Reload /etc/profile
+            shell: source /etc/profile
+            register: output
+            args:
+                    executable: /bin/bash -lc
+
+          - debug: 'msg="{{ output }}"'

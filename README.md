@@ -1,29 +1,27 @@
-# README #
+# Creating VMs in Azure cloud and configuring it with Java installation #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+In order to achieve Infrastructure as code in cloud like Azure, we can utilize Ansible which allows creation on 
+Azure services using Azure collection or azure modules in Ansible. Steps are as followings.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
+* This repo will contain the Ansible scripts, the steps needed to prep the VM , Shell scripts, and dependencies.
+* 1.0
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Run Azure ansible script
+* Create user ansible
+* Create ssh key pair
+* Export public key to remote server
+* Generate root pwd so that ansible cab become root to run installation in /opt and /etc directories.
+* Run install_java ansible script
 
-### Contribution guidelines ###
+### Things about creating VM through Ansible ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* Writing procedure
 
-### Who do I talk to? ###
+### Preparing a workstation with Ansible and azure CLI ###
 
-* Repo owner or admin
-* Other community or team contact
+* Create a workstation

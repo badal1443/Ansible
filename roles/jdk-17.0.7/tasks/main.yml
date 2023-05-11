@@ -1,0 +1,26 @@
+- name: Download the openjdk package
+  get_url:
+    url: https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+    dest: /home/ansible/jdk-17_linux-x64_bin.tar.gz
+
+- name : Unzip the package
+  unarchive:
+    src: /home/ansible/jdk-17_linux-x64_bin.tar.gz
+    dest: /home/ansible
+    remote_src: yes
+
+- name: JAVA_HOME settings
+  lineinfile:
+    path: /etc/profile
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - 'export JAVA_HOME="/home/ansible/jdk-17.0.7"'
+    - 'export PATH=$PATH:$JAVA_HOME/bin'
+
+- name: Reload /etc/profile
+  shell: source /etc/profile
+  register: output
+  args:
+          executable: /bin/bash
+- debug: 'msg="{{ output }}"'

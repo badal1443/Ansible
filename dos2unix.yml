@@ -1,4 +1,8 @@
-- name: Update repositories cache and install "dos2unix" package
-  ansible.builtin.apt:
-    name: dos2unix
-    update_cache: yes
+- name: ANT 1.19 installation on linux
+  hosts: twinpeaks
+  become: true
+  tasks:
+          - name: Update repositories cache and install "dos2unix" package
+            ansible.builtin.apt:
+              name: dos2unix
+              update_cache: yes

@@ -1,0 +1,11 @@
+- name: ANT 1.19 installation on linux
+  hosts: twinpeaks
+  become: true
+  tasks:
+          - name: Create a symbolic link
+            ansible.builtin.file:
+              src: /home/ubuntu/src/b/com/testfilenews
+              dest: /home/ubuntu/link/testfile
+              owner: ubuntu
+              group: ubuntu
+              state: link

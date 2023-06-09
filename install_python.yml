@@ -10,9 +10,15 @@
       ansible.builtin.apt:
         name: python3.6
         update_cache: yes
-    - name: Install Python 3.6 but do not select it
-      community.general.alternatives:
-        name: python
-        path: /usr/bin/python3.6
-        link: /usr/bin/python
-        state: present
+    - name: Install specified python requirements
+      ansible.builtin.pip:
+        requirements: /home/b/requirements.txt
+    - name: Install bottle python package on version 0.11
+      ansible.builtin.pip:
+        name: numpy==1.19.1
+    - name: Install bottle python package on version 0.11
+      ansible.builtin.pip:
+        name: pandas==1.1.1
+    - name: Install bottle python package on version 0.11
+      ansible.builtin.pip:
+        name: cx-Oracle==8.0.0

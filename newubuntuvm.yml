@@ -55,8 +55,8 @@
         resource_group: backstageRG
         name: myVM
         vm_size: Standard_B2s
-        admin_username: irobot
-        admin_password: irobot123!
+        admin_username: admin
+        admin_password: admin
         ssh_password_enabled: true
         network_interfaces: myNIC
         managed_disk_type: Standard_LRS

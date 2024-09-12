@@ -49,21 +49,12 @@
           - name: ipconfig1
             public_ip_address_name: publicip001
             primary: true
-    - name: Create an availability set for managed disk vm
-      azure_rm_availabilityset:
-        name: avs-managed-disk
-        resource_group: backstageRG
-        platform_update_domain_count: 5
-        platform_fault_domain_count: 2
-        sku: Aligned
 
     - name: Create VM
       azure_rm_virtualmachine:
         resource_group: backstageRG
         name: myVM
-        vm_size: Standard_D4
-        availability_set: avs-managed-disk
-        managed_disk_type: Standard_LRS
+        vm_size: Standard B2s
         admin_username: irobot
         admin_password: irobot123!
         ssh_password_enabled: true

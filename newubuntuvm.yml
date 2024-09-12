@@ -1,0 +1,63 @@
+---
+- name: Provision Ubuntu Machine in Azure
+  hosts: localhost
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: backstageRG
+        location: eastus
+
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: backstageRG
+        name: myVnet
+        address_prefixes: "10.0.0.0/16"
+
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: backstageRG
+        name: mySubnet
+        address_prefix: "10.0.1.0/24"
+        virtual_network: myVnet
+
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: backstageRG
+        allocation_method: Static
+        name: myPublicIP
+
+    - name: Create network security group
+      azure_rm_securitygroup:
+        resource_group: backstageRG
+        name: myNetworkSecurityGroup
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
+
+    - name: Create virtual network interface card
+      azure_rm_networkinterface:
+        resource_group: backstageRG
+        name: myNIC
+        virtual_network: myVnet
+        subnet: mySubnet
+        public_ip_name: myPublicIP
+        security_group: myNetworkSecurityGroup
+
+    - name: Create VM
+      azure_rm_virtualmachine:
+        resource_group: backstageRG
+        name: myVM
+        vm_size: Standard_DS1_v2
+        admin_username: irobot
+        admin_password: irobot123!
+        ssh_password_enabled: true
+        network_interfaces: myNIC
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 18.04-LTS
+          version: latest

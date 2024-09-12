@@ -54,7 +54,7 @@
       azure_rm_virtualmachine:
         resource_group: backstageRG
         name: myVM
-        vm_size: Standard B2s
+        vm_size: Standard_B2s
         admin_username: irobot
         admin_password: irobot123!
         ssh_password_enabled: true

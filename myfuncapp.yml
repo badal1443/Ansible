@@ -1,0 +1,34 @@
+---
+- name: Create Azure Function App
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Create a resource group
+      azure.azcollection.azure_rm_resourcegroup:
+        name: myfuncapp
+        location: eastus
+
+    - name: Create a storage account
+      azure.azcollection.azure_rm_storageaccount:
+        resource_group: myfuncapp
+        name: mystorageaccount
+        sku: Standard_LRS
+        kind: StorageV2
+
+    - name: Create an app service plan
+      azure.azcollection.azure_rm_appserviceplan:
+        resource_group: myfuncapp
+        name: myAppServicePlan
+        sku:
+          tier: Dynamic
+          size: Y1
+
+    - name: Create a function app
+      azure.azcollection.azure_rm_functionapp:
+        resource_group: myfuncapp
+        name: funcapp007
+        plan: myAppServicePlan
+        storage_account: mystorageaccount
+        os_type: Linux
+        runtime: python
+        runtime_version: 3.9

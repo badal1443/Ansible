@@ -1,4 +1,4 @@
-apiVersion: badal1443.io/v1alpha1
+apiVersion: backstage/v1alpha1
 kind: Component
 metadata:
   name: ansible

@@ -11,7 +11,7 @@
     - name: Create a storage account
       azure.azcollection.azure_rm_storageaccount:
         resource_group: myfuncapp
-        name: mystorageaccount123
+        name: mystorageaccount12345
         type: Standard_LRS
         kind: StorageV2
         tags:
@@ -30,7 +30,7 @@
         resource_group: myfuncapp
         name: funcapp007
         plan: myAppServicePlan
-        storage_account: mystorageaccount123
+        storage_account: mystorageaccount12345
         os_type: Linux
         runtime: python
         runtime_version: 3.9

@@ -29,6 +29,3 @@
         name: funcapp007
         plan: myAppServicePlan
         storage_account: mystorageaccountt123
-        os_type: Linux
-        runtime: python
-        runtime_version: 3.9

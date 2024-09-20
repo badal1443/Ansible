@@ -14,6 +14,8 @@
         name: mystorageaccount
         sku: Standard_LRS
         kind: StorageV2
+        tags:
+          testing: testing
 
     - name: Create an app service plan
       azure.azcollection.azure_rm_appserviceplan:

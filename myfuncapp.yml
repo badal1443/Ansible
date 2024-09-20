@@ -12,7 +12,7 @@
       azure.azcollection.azure_rm_storageaccount:
         resource_group: myfuncapp
         name: mystorageaccount
-        sku: Standard_LRS
+        type: Standard_LRS
         kind: StorageV2
         tags:
           testing: testing

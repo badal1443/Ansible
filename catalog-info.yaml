@@ -1,7 +1,7 @@
 apiVersion: backstage/v1alpha1
 kind: Component
 metadata:
-  name: ansible
+  name: backstage
   description: |
     This github repo shows how to use ansible to create and configure azure resources.
   links:

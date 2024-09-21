@@ -6,7 +6,7 @@
     - name: Create a resource group
       azure.azcollection.azure_rm_resourcegroup:
         name: myfuncapp
-        location: eastus
+        location: westus
 
     - name: Create a storage account
       azure.azcollection.azure_rm_storageaccount:

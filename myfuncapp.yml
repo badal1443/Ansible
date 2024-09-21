@@ -22,6 +22,7 @@
         resource_group: myfuncapp
         name: myAppServicePlan
         sku: Y1
+        is_linux: true
 
     - name: Create a function app
       azure.azcollection.azure_rm_functionapp:

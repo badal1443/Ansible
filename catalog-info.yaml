@@ -4,7 +4,7 @@ metadata:
   name: ansible
   annotations:
     github.com/project-slug: badal1443/ansible
-    backstage.io/techdocs-ref: Docs
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: other
   lifecycle: unknown

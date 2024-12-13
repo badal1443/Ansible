@@ -1,7 +1,6 @@
 site_name: 'My Backstage App'
 site_description: 'Main documentation for Backstage features and framework APIs'
-nav:
-  - Introduction: ./docs/index.md
+
 
 plugins:
   - techdocs-core

@@ -21,3 +21,9 @@
 #Best Practices
   - Simplicity
   - Non Ambigous
+
+# Questions:
+  - What are collections
+  - What are modules and plugins
+  - Define roles
+  - handlers

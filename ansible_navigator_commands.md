@@ -8,7 +8,7 @@
 ## For Ansible navigator
 
 # Some of the usefl commands
-- Version of ansible \n
+- Version of ansible: 
   `ansible --version`
 - 
 

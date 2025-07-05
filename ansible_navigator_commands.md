@@ -18,6 +18,9 @@
 - Run ansible playbook using ansible navigator non-interatively.  
   `ansible-navigator run -m stdout <playbook.yml>`
 
+- Check list of collections in execution environment  
+  `ansible-navigator collections list`
+
 #Best Practices
   - Simplicity
   - Non Ambigous

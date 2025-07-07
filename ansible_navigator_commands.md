@@ -21,6 +21,11 @@
 - Check list of collections in execution environment  
   `ansible-navigator collections list`
 
+- List all modules present in execution environment.
+  `ansible-navigator doc -m stdout -l`
+- Open documentation for dnf module.
+  `ansible-navigator doc -m stdout ansible.builtin.dnf`
+
 #Best Practices
   - Simplicity
   - Non Ambigous

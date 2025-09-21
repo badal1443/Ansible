@@ -7,9 +7,10 @@
     resource_group_location: "westus2"
   tasks:
     - name: Create resource group
-      azure.azcollection.azure_rm_resource:
+      azure.azcollection.azure_rm_resourcegroup:
         name: "{{ resource_group_name }}"
         location: "{{ resource_group_location }}"
+        state: present
       register: rg
     - name: Display the result
       debug:

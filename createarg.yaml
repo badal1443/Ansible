@@ -2,6 +2,9 @@
 - name: Create a resource group in azure
   hosts: localhost
   connection: local
+  vars:
+    resource_group_name: "devopsRG"
+    resource_group_location: "westus2"
   tasks:
     - name: Create resource group
       azure.azcollection.azure_rm_resource:

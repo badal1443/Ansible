@@ -1,0 +1,13 @@
+## Ansible scrip to create a resource group in azure
+- name: Create a resource group in azure
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Create resource group
+      azure.azcollection.azure_rm_resource:
+        name: "{{ resource_group_name }}"
+        location: "{{ resource_group_location }}"
+      register: rg
+    - name: Display the result
+      debug:
+        var: rg
